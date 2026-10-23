@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Andrés Lazo · AI Automation &amp; Implementation</title>
+<meta name="description" content="Andrés Lazo builds AI agents that answer leads, screen CVs and handle admin work for small businesses. Case studies with real numbers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+:root{
+  --bg:#F6F4EF; --surface:#FFFFFF; --text:#1B1B1A; --muted:#5F5D57; --line:#E2DED4;
+  --accent:#2F5D50; --accent-soft:#E3ECE8; --num:#2F5D50;
+  --display:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#141413; --surface:#1D1D1B; --text:#ECEAE4; --muted:#A3A097; --line:#2E2D2A;
+  --accent:#8CC5B2; --accent-soft:#22302C; --num:#8CC5B2; color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--body)}
+main{max-width:980px;margin:0 auto;padding:56px 16px 72px;display:grid;gap:64px}
+h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;letter-spacing:-.01em}
+h1{font-size:clamp(2.1rem,6vw,3.4rem)} h2{font-size:1.7rem} h3{font-size:1.35rem}
+p{margin:0} a{color:var(--accent);text-underline-offset:3px}
+a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.muted{color:var(--muted)} .small{font-size:.88rem}
+.eyebrow{font-size:.76rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+header{display:grid;gap:18px}
+.lead{font-size:1.15rem;max-width:62ch}
+.links{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-block;padding:9px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;font-weight:600;font-size:.92rem}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
+.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
+.stat{border-top:2px solid var(--accent);padding-top:10px}
+.stat b{display:block;font:700 1.7rem var(--display);color:var(--num)}
+.case{display:grid;gap:22px;grid-template-columns:1fr;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
+@media (min-width:820px){.case.media{grid-template-columns:1.05fr .95fr}}
+.case dl{margin:0;display:grid;gap:12px}
+.case dt{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.case dd{margin:0}
+.result{background:var(--accent-soft);border-radius:12px;padding:14px 16px}
+.result b{font-family:var(--display);font-size:1.15rem;color:var(--num)}
+.stack{display:flex;flex-wrap:wrap;gap:6px}
+.stack span{font-size:.78rem;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--muted)}
+figure{margin:0;display:grid;gap:8px;align-content:start}
+video,img{width:100%;border-radius:12px;border:1px solid var(--line);background:#0A0B0F;display:block}
+figcaption{font-size:.8rem;color:var(--muted)}
+.vertical video{max-height:560px;object-fit:contain}
+.how{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.how div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px}
+footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <span class="eyebrow">Costa Rica · remote · English / Español</span>
+  <h1>Andrés Lazo</h1>
+  <p class="lead">AI automation and implementation specialist. I build AI agents that answer new leads, screen CVs, fill forms and keep operations moving for small businesses, and I check that they hold up in production.</p>
+  <p class="muted" style="max-width:62ch">I build with AI development tools rather than writing every line by hand. My job is choosing what to automate, directing the build, and verifying what ships. Everything here runs in my own company, <a href="https://enhanzu.com">enhanzu</a>, before anyone else uses it.</p>
+  <div class="links">
+    <a class="btn primary" href="mailto:andres.lazo@enhanzu.com">Email me</a>
+    <a class="btn" href="https://www.linkedin.com/in/andres-lazo">LinkedIn</a>
+    <a class="btn" href="https://github.com/AndresLazo26">GitHub</a>
+  </div>
+</header>
+
+<section class="stats" aria-label="Numbers">
+  <div class="stat"><b>8</b><span class="small muted">specialist agents under one orchestrator, live 24/7 in the cloud</span></div>
+  <div class="stat"><b>70+</b><span class="small muted">actions those agents run through real APIs</span></div>
+  <div class="stat"><b>1,000+</b><span class="small muted">commits since May 2026 across my private repos</span></div>
+  <div class="stat"><b>~4 min</b><span class="small muted">from a website form to a reply with a booking link</span></div>
+</section>
+
+<section style="display:grid;gap:20px">
+  <span class="eyebrow">Case studies</span>
+
+  <article class="case media">
+    <dl>
+      <h3>Lead response for clinics</h3>
+      <div><dt>Problem</dt><dd>Clinics lose patients who fill a form or write after hours and wait too long for an answer.</dd></div>
+      <div><dt>What I built</dt><dd>A worker that answers every new website lead with a personal reply and a booking link, reads the calendar to know who booked, and sends one follow-up after 24 hours only to people who didn't. I ran it on my own site first.</dd></div>
+      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Railway</span><span>Gmail API</span><span>Google Calendar</span><span>Claude</span></dd></div>
+      <div class="result"><b>~4 minutes</b> from form to reply in the end-to-end test, booking detected correctly, no follow-up sent to people who booked. The test also caught an old calendar still embedded on the contact page.</div>
+    </dl>
+    <figure class="vertical">
+      <video src="assets/clinic-demo.mp4" poster="assets/clinic-poster.png" controls muted playsinline preload="none"></video>
+      <figcaption>20-second product demo. Sample data, no real patients.</figcaption>
+    </figure>
+  </article>
+
+  <article class="case media">
+    <dl>
+      <h3>CV screening for a recruiter</h3>
+      <div><dt>Problem</dt><dd>A recruiter's inbox mixed applications for several vacancies with everything else, and reading every CV took days.</dd></div>
+      <div><dt>What I built</dt><dd>An app that reads the inbox, detects the vacancy from each email, extracts the CV and ranks candidates with strengths and gaps. It tracks which date range has been covered, measured against the mail server.</dd></div>
+      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>IMAP / Gmail OAuth</span><span>Claude</span><span>Desktop app (WebView2)</span><span>Web version</span></dd></div>
+      <div class="result">First run on the real inbox: <b>30 emails, 30 CVs</b> sorted into the right vacancies. A 100-email batch found 45 CVs for about <b>$0.25</b> in model cost.</div>
+    </dl>
+    <figure>
+      <video src="assets/hr-report.mp4" poster="assets/hr-poster.png" controls muted playsinline preload="none"></video>
+      <figcaption>Tutorial of the candidate report. Sample data.</figcaption>
+    </figure>
+  </article>
+
+  <article class="case">
+    <dl>
+      <h3>Job application co-pilot</h3>
+      <div><dt>Problem</dt><dd>Applying to jobs means filling the same long forms again and again, and AI tools that tailor CVs tend to invent achievements.</dd></div>
+      <div><dt>What I built</dt><dd>A desktop app that scores a CV against a vacancy, tailors it without adding facts, and fills application forms in a real browser. It stops before Submit by design; anything it doesn't know is left as a question for the person.</dd></div>
+      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Playwright</span><span>Claude</span><span>PyInstaller</span></dd></div>
+      <div class="result"><b>26 to 70 seconds</b> and <b>$0.05 to $0.12</b> per form. After fixing the CV parser the score finally separates fits: <b>32-39</b> on a mismatched vacancy, <b>80-82</b> on a matching one.</div>
+    </dl>
+  </article>
+
+  <article class="case">
+    <dl>
+      <h3>Research tables that check themselves</h3>
+      <div><dt>Problem</dt><dd>A research team built the results tables of a technical report on rural water and sanitation by hand from a large dataset. One wrong number spreads through the whole document.</dd></div>
+      <div><dt>What I built</dt><dd>A pipeline that audits the raw data, builds every table, and verifies the output with checks written separately from the code that builds it, so a misunderstanding can't confirm itself. It also finds exact arithmetic relations between columns automatically.</dd></div>
+      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>pandas</span><span>SciPy</span><span>Word output</span><span>Desktop app</span></dd></div>
+      <div class="result"><b>63 of 63 checks</b> pass and the delivered report is reproduced with <b>zero differences</b>, in under 30 seconds.</div>
+    </dl>
+  </article>
+
+  <article class="case">
+    <dl>
+      <h3>An orchestrator for a team of agents</h3>
+      <div><dt>Problem</dt><dd>Separate bots for WhatsApp, leads, ads and content meant separate places to operate and nobody watching the whole.</dd></div>
+      <div><dt>What I built</dt><dd>A manager agent that delegates to 8 specialists, with shared memory in Postgres, a web console, a confirmation gate against prompt injection, and a health check that runs in CI against production. Prices and events can be changed from chat and the WhatsApp bot picks them up without a deploy.</dd></div>
+      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Node</span><span>Claude tool use</span><span>Postgres</span><span>Railway</span><span>GitHub Actions</span><span>Meta Cloud API</span></dd></div>
+      <div class="result"><b>73 actions</b> across 8 agents, live 24/7. A config change from chat reached the live bot in <b>~30 seconds</b>. The security smoke tests caught <b>10 of 10</b> deliberately broken defenses.</div>
+    </dl>
+  </article>
+
+  <article class="case">
+    <dl>
+      <h3>Outreach campaign in one day</h3>
+      <div><dt>Problem</dt><dd>A B2B client in Panama lost a partner institution shortly before a regional tour and needed new ones to approach fast.</dd></div>
+      <div><dt>What I built</dt><dd>A contact list from public sources and a contact database, a short letter, and a sending run from the client's own mailboxes. The contact data stayed out of version control.</dd></div>
+      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Apollo API</span><span>SMTP / IMAP</span><span>Postgres</span></dd></div>
+      <div class="result"><b>232 contacts</b> researched and <b>93 emails</b> sent in one day, with <b>0 send failures</b>.</div>
+    </dl>
+  </article>
+</section>
+
+<section style="display:grid;gap:16px">
+  <span class="eyebrow">How I work</span>
+  <div class="how">
+    <div><h3>Process first</h3><p class="small muted">If the task doesn't fit on one page of instructions, an agent will only automate the mess.</p></div>
+    <div><h3>Open the output</h3><p class="small muted">"All green" proves nothing. I read the PDF, the reply, the table, before calling it done.</p></div>
+    <div><h3>Run it at home</h3><p class="small muted">Nothing gets offered to a client until it has run in my own company.</p></div>
+  </div>
+</section>
+
+<section style="display:grid;gap:10px">
+  <span class="eyebrow">Before this</span>
+  <p class="muted" style="max-width:70ch">Years in operations: after-sales process work across 6 LATAM markets at Samsung Electronics Latin America, marketing and supplier coordination for a Costa Rican retailer, and running a food business end to end. Mechanical engineering background.</p>
+</section>
+
+<footer class="small muted">
+  <span>Andrés Lazo · <a href="mailto:andres.lazo@enhanzu.com">andres.lazo@enhanzu.com</a></span>
+  <span>Client names are left out on purpose. Demos use sample data.</span>
+</footer>
+
+</main>
+</body>
+</html>
