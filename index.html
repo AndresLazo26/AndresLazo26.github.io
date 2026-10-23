@@ -2,166 +2,220 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Andrés Lazo · AI Automation &amp; Implementation</title>
-<meta name="description" content="Andrés Lazo builds AI agents that answer leads, screen CVs and handle admin work for small businesses. Case studies with real numbers.">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Andrés Lazo</title>
+<meta name="description" content="Andrés Lazo builds AI automations for small businesses. Six projects, with the decision behind each one and the numbers it produced.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
 <style>
+/* Layout: one reading column, left aligned. Each project = short story + one piece of proof (video, screenshot, code, diagram). */
 :root{
-  --bg:#F6F4EF; --surface:#FFFFFF; --text:#1B1B1A; --muted:#5F5D57; --line:#E2DED4;
-  --accent:#2F5D50; --accent-soft:#E3ECE8; --num:#2F5D50;
-  --display:'Fraunces',Georgia,serif; --body:'Inter',system-ui,sans-serif;
+  --bg:#F7F8F9; --fg:#16181D; --muted:#5B616E; --line:#E1E4E8; --code:#EEF0F3; --link:#2B59C3;
+  --sans:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'Geist Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
+  color-scheme:light;
 }
-@media (prefers-color-scheme:dark){:root{
-  --bg:#141413; --surface:#1D1D1B; --text:#ECEAE4; --muted:#A3A097; --line:#2E2D2A;
-  --accent:#8CC5B2; --accent-soft:#22302C; --num:#8CC5B2; color-scheme:dark}}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0F1114; --fg:#E6E8EB; --muted:#9097A3; --line:#252930; --code:#171A1F; --link:#93B1FF; color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1114; --fg:#E6E8EB; --muted:#9097A3; --line:#252930; --code:#171A1F; --link:#93B1FF; color-scheme:dark}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--text);font:16px/1.65 var(--body)}
-main{max-width:980px;margin:0 auto;padding:56px 16px 72px;display:grid;gap:64px}
-h1,h2,h3{font-family:var(--display);line-height:1.12;margin:0;letter-spacing:-.01em}
-h1{font-size:clamp(2.1rem,6vw,3.4rem)} h2{font-size:1.7rem} h3{font-size:1.35rem}
-p{margin:0} a{color:var(--accent);text-underline-offset:3px}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.muted{color:var(--muted)} .small{font-size:.88rem}
-.eyebrow{font-size:.76rem;font-weight:600;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
-header{display:grid;gap:18px}
-.lead{font-size:1.15rem;max-width:62ch}
-.links{display:flex;flex-wrap:wrap;gap:10px}
-.btn{display:inline-block;padding:9px 16px;border-radius:10px;border:1px solid var(--line);background:var(--surface);color:var(--text);text-decoration:none;font-weight:600;font-size:.92rem}
-.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--bg)}
-.stats{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(170px,1fr))}
-.stat{border-top:2px solid var(--accent);padding-top:10px}
-.stat b{display:block;font:700 1.7rem var(--display);color:var(--num)}
-.case{display:grid;gap:22px;grid-template-columns:1fr;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px}
-@media (min-width:820px){.case.media{grid-template-columns:1.05fr .95fr}}
-.case dl{margin:0;display:grid;gap:12px}
-.case dt{font-size:.74rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.case dd{margin:0}
-.result{background:var(--accent-soft);border-radius:12px;padding:14px 16px}
-.result b{font-family:var(--display);font-size:1.15rem;color:var(--num)}
-.stack{display:flex;flex-wrap:wrap;gap:6px}
-.stack span{font-size:.78rem;border:1px solid var(--line);border-radius:99px;padding:2px 10px;color:var(--muted)}
-figure{margin:0;display:grid;gap:8px;align-content:start}
-video,img{width:100%;border-radius:12px;border:1px solid var(--line);background:#0A0B0F;display:block}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:15.5px/1.7 var(--sans)}
+main{max-width:680px;margin:0 auto;padding-block:72px 96px;
+  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));
+  display:grid;gap:72px}
+h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
+h1{font-size:1.15rem} h2{font-size:.8rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
+h3{font-size:1.05rem}
+p{margin:0;max-width:64ch}
+a{color:var(--link);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--link) 35%,transparent)}
+a:hover{border-bottom-color:var(--link)}
+a:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:2px}
+.muted{color:var(--muted)}
+.intro{display:grid;gap:14px}
+.intro .links{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem}
+section{display:grid;gap:28px}
+.project{display:grid;gap:14px;padding-top:28px;border-top:1px solid var(--line)}
+.project:first-of-type{border-top:0;padding-top:0}
+.meta{font:400 .78rem var(--mono);color:var(--muted)}
+.story{display:grid;gap:10px;margin:0}
+.story div{display:grid;grid-template-columns:76px 1fr;gap:12px}
+.story dt{font:500 .72rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-top:4px}
+.story dd{margin:0;min-width:0}
+@media (max-width:520px){.story div{grid-template-columns:1fr;gap:2px}}
+.n{font-variant-numeric:tabular-nums;font-weight:600}
+figure{margin:6px 0 0;display:grid;gap:8px;min-width:0}
 figcaption{font-size:.8rem;color:var(--muted)}
-.vertical video{max-height:560px;object-fit:contain}
-.how{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
-.how div{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;display:grid;gap:6px}
-footer{border-top:1px solid var(--line);padding-top:24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between}
+video,img{display:block;width:100%;max-width:100%;border:1px solid var(--line);border-radius:6px;background:#0A0B0F}
+video.tall{max-width:320px}
+pre{margin:0;overflow-x:auto;background:var(--code);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font:400 .78rem/1.6 var(--mono);tab-size:4}
+pre .c{color:var(--muted)}
+.diagram{overflow-x:auto;background:var(--code);border:1px solid var(--line);border-radius:6px;padding:18px}
+.diagram svg{display:block;min-width:560px;width:100%;height:auto}
+.diagram text{font:400 11px var(--mono);fill:var(--fg)}
+.diagram .s{fill:var(--muted)}
+.diagram rect{fill:var(--bg);stroke:var(--line)}
+.diagram rect.hub{stroke:var(--link)}
+.diagram line,.diagram path{stroke:var(--muted);fill:none}
+ul.plain{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+ul.plain li{display:grid;grid-template-columns:110px 1fr;gap:12px}
+ul.plain .yr{font:400 .78rem var(--mono);color:var(--muted);padding-top:3px}
+@media (max-width:520px){ul.plain li{grid-template-columns:1fr;gap:0}}
+footer{font-size:.85rem;color:var(--muted);display:grid;gap:6px}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
 </style>
 </head>
 <body>
 <main>
 
-<header>
-  <span class="eyebrow">Costa Rica · remote · English / Español</span>
+<header class="intro">
   <h1>Andrés Lazo</h1>
-  <p class="lead">AI automation and implementation specialist. I build AI agents that answer new leads, screen CVs, fill forms and keep operations moving for small businesses, and I check that they hold up in production.</p>
-  <p class="muted" style="max-width:62ch">I build with AI development tools rather than writing every line by hand. My job is choosing what to automate, directing the build, and verifying what ships. Everything here runs in my own company, <a href="https://enhanzu.com">enhanzu</a>, before anyone else uses it.</p>
+  <p>I automate the repetitive parts of small businesses with AI: replying to new leads, reading a recruiter's inbox, filling forms, checking numbers. I live in Costa Rica and work remotely in English and Spanish.</p>
+  <p class="muted">I don't write most of the code by hand. I decide what's worth automating, direct AI tools to build it, and spend the rest of the time making sure it works on real data. Everything below runs in my own company, <a href="https://enhanzu.com">enhanzu</a>, or ran for a client. Clients are not named.</p>
   <div class="links">
-    <a class="btn primary" href="mailto:andres.lazo@enhanzu.com">Email me</a>
-    <a class="btn" href="https://www.linkedin.com/in/andres-lazo">LinkedIn</a>
-    <a class="btn" href="https://github.com/AndresLazo26">GitHub</a>
+    <a href="https://www.linkedin.com/in/andres-lazo">LinkedIn</a>
+    <a href="https://github.com/AndresLazo26">GitHub</a>
+    <span class="muted">andres.lazo@enhanzu.com</span>
   </div>
 </header>
 
-<section class="stats" aria-label="Numbers">
-  <div class="stat"><b>8</b><span class="small muted">specialist agents under one orchestrator, live 24/7 in the cloud</span></div>
-  <div class="stat"><b>70+</b><span class="small muted">actions those agents run through real APIs</span></div>
-  <div class="stat"><b>1,000+</b><span class="small muted">commits since May 2026 across my private repos</span></div>
-  <div class="stat"><b>~4 min</b><span class="small muted">from a website form to a reply with a booking link</span></div>
-</section>
+<section aria-labelledby="work">
+  <h2 id="work">Work</h2>
 
-<section style="display:grid;gap:20px">
-  <span class="eyebrow">Case studies</span>
-
-  <article class="case media">
-    <dl>
-      <h3>Lead response for clinics</h3>
-      <div><dt>Problem</dt><dd>Clinics lose patients who fill a form or write after hours and wait too long for an answer.</dd></div>
-      <div><dt>What I built</dt><dd>A worker that answers every new website lead with a personal reply and a booking link, reads the calendar to know who booked, and sends one follow-up after 24 hours only to people who didn't. I ran it on my own site first.</dd></div>
-      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Railway</span><span>Gmail API</span><span>Google Calendar</span><span>Claude</span></dd></div>
-      <div class="result"><b>~4 minutes</b> from form to reply in the end-to-end test, booking detected correctly, no follow-up sent to people who booked. The test also caught an old calendar still embedded on the contact page.</div>
+  <article class="project">
+    <h3>Replying to clinic leads before they go elsewhere</h3>
+    <p class="meta">2026 · Python · Gmail API · Google Calendar · Railway</p>
+    <dl class="story">
+      <div><dt>Problem</dt><dd>A clinic that answers a web form the next morning has usually lost that patient. I wanted to sell an automatic reply to clinics, but I had never run one.</dd></div>
+      <div><dt>Decision</dt><dd>I put it on my own site first and refused to offer it until it worked there. That test is how I found my contact page still embedding an old booking calendar that the system couldn't see, so a lead who booked there would have been chased anyway. I moved booking to Google Calendar so the worker can check it.</dd></div>
+      <div><dt>Result</dt><dd>In the end-to-end test a filled form got a personal reply with a booking link in about <span class="n">4 minutes</span>. The booking was detected and no follow-up went out. Leads who neither reply nor book get exactly one follow-up after 24 hours.</dd></div>
     </dl>
-    <figure class="vertical">
-      <video src="assets/clinic-demo.mp4" poster="assets/clinic-poster.png" controls muted playsinline preload="none"></video>
-      <figcaption>20-second product demo. Sample data, no real patients.</figcaption>
+    <figure>
+      <pre><span class="c"># The check that decides whether a lead gets a follow-up</span>
+def agendo(H, email, desde):
+    try:
+        r = requests.get(".../calendars/primary/events", headers=H, params={
+            "q": email, "singleEvents": "true", "maxResults": 5,
+            "timeMin": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(desde))})
+        r.raise_for_status()
+        return any(email in (a.get("email") or "").lower()
+                   for e in r.json().get("items", []) for a in e.get("attendees", []))
+    except Exception as ex:
+        log(f"calendar no disponible ({ex}): se asume que {email} no agendó")
+        return False</pre>
+      <figcaption>From the production worker. If the calendar can't be read, it fails soft and falls back to the old behavior.</figcaption>
+    </figure>
+    <figure>
+      <video class="tall" src="assets/clinic-demo.mp4" poster="assets/clinic-poster.png" controls muted playsinline preload="none"></video>
+      <figcaption>20-second product demo for clinics. Sample data.</figcaption>
     </figure>
   </article>
 
-  <article class="case media">
-    <dl>
-      <h3>CV screening for a recruiter</h3>
-      <div><dt>Problem</dt><dd>A recruiter's inbox mixed applications for several vacancies with everything else, and reading every CV took days.</dd></div>
-      <div><dt>What I built</dt><dd>An app that reads the inbox, detects the vacancy from each email, extracts the CV and ranks candidates with strengths and gaps. It tracks which date range has been covered, measured against the mail server.</dd></div>
-      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>IMAP / Gmail OAuth</span><span>Claude</span><span>Desktop app (WebView2)</span><span>Web version</span></dd></div>
-      <div class="result">First run on the real inbox: <b>30 emails, 30 CVs</b> sorted into the right vacancies. A 100-email batch found 45 CVs for about <b>$0.25</b> in model cost.</div>
+  <article class="project">
+    <h3>Sorting a recruiter's inbox into vacancies</h3>
+    <p class="meta">2026 · Python · IMAP/Gmail OAuth · Claude · desktop app and web</p>
+    <dl class="story">
+      <div><dt>Problem</dt><dd>A recruiter received applications for several open roles in one inbox, mixed with everything else, and read each CV by hand.</dd></div>
+      <div><dt>Decision</dt><dd>After the first real run, the open question was whether to make the email filters configurable. I decided not to. The classifier had sorted every email correctly, so the risk was a settings screen nobody would use well. I made the rules file readable and added a button to open it instead. The same run showed that "KAM" and "Key Account Manager" were opening two vacancies for one role, which no test with sample data had caught.</dd></div>
+      <div><dt>Result</dt><dd>First run on the real inbox: <span class="n">30</span> emails, <span class="n">30</span> CVs, each in the right vacancy. A later batch of 100 emails found 45 CVs for about <span class="n">$0.25</span> in model cost.</dd></div>
     </dl>
     <figure>
       <video src="assets/hr-report.mp4" poster="assets/hr-poster.png" controls muted playsinline preload="none"></video>
-      <figcaption>Tutorial of the candidate report. Sample data.</figcaption>
+      <figcaption>The candidate report, from the user tutorial. Sample data.</figcaption>
     </figure>
   </article>
 
-  <article class="case">
-    <dl>
-      <h3>Job application co-pilot</h3>
-      <div><dt>Problem</dt><dd>Applying to jobs means filling the same long forms again and again, and AI tools that tailor CVs tend to invent achievements.</dd></div>
-      <div><dt>What I built</dt><dd>A desktop app that scores a CV against a vacancy, tailors it without adding facts, and fills application forms in a real browser. It stops before Submit by design; anything it doesn't know is left as a question for the person.</dd></div>
-      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Playwright</span><span>Claude</span><span>PyInstaller</span></dd></div>
-      <div class="result"><b>26 to 70 seconds</b> and <b>$0.05 to $0.12</b> per form. After fixing the CV parser the score finally separates fits: <b>32-39</b> on a mismatched vacancy, <b>80-82</b> on a matching one.</div>
+  <article class="project">
+    <h3>A job application co-pilot that can't press Submit</h3>
+    <p class="meta">2026 · Python · Playwright · Claude · PyInstaller</p>
+    <dl class="story">
+      <div><dt>Problem</dt><dd>Applying for jobs means retyping the same answers into long forms. Tools that rewrite CVs with AI also tend to add achievements that never happened.</dd></div>
+      <div><dt>Decision</dt><dd>The first version could auto-apply on LinkedIn. I deleted it, about 1,000 lines. It needed the user's password stored in plain text, typing it from a fresh browser is what gets accounts flagged, and LinkedIn's login now uses element ids that change on every render. The co-pilot works in a real browser instead, and the Submit button is blocked in code, not only in the prompt.</dd></div>
+      <div><dt>Result</dt><dd><span class="n">26</span> to <span class="n">70</span> seconds and <span class="n">$0.05</span> to <span class="n">$0.12</span> per form. Once I fixed the CV parser the match score started to mean something: <span class="n">32-39</span> for a role that didn't fit and <span class="n">80-82</span> for one that did. Before the fix both scored under 20.</dd></div>
+    </dl>
+    <figure>
+      <pre>def clic(self, ref: str) -> str:
+    info = self._info(ref)
+    nombre = info.get("etiqueta", "")
+    if es_envio(info):
+        raise PermissionError(f"'{nombre}' envía o descarta la postulación: ese clic es del humano")
+    ...</pre>
+      <figcaption>The browser wrapper refuses to click anything that submits or discards an application.</figcaption>
+    </figure>
+  </article>
+
+  <article class="project">
+    <h3>Research tables that are checked by something else</h3>
+    <p class="meta">2026 · Python · pandas · SciPy · Word</p>
+    <dl class="story">
+      <div><dt>Problem</dt><dd>A research team built the results tables of a technical report on rural water and sanitation by hand from a large dataset. A single wrong figure spreads into every chapter that cites it.</dd></div>
+      <div><dt>Decision</dt><dd>It would have been faster to let the model write both the code that builds the tables and the checks. I kept them apart. If the same model misreads the data in both places, the check passes and the error ships. The checks compare against the report that was already delivered and reviewed.</dd></div>
+      <div><dt>Result</dt><dd>The pipeline passes <span class="n">63</span> of <span class="n">63</span> checks and reproduces the delivered report with <span class="n">0</span> differences, in under 30 seconds. It also found on its own that a coverage column equals three other columns added up and divided by households, true in 4,896 of 4,896 rows. Before, that relation had been worked out by hand.</dd></div>
     </dl>
   </article>
 
-  <article class="case">
-    <dl>
-      <h3>Research tables that check themselves</h3>
-      <div><dt>Problem</dt><dd>A research team built the results tables of a technical report on rural water and sanitation by hand from a large dataset. One wrong number spreads through the whole document.</dd></div>
-      <div><dt>What I built</dt><dd>A pipeline that audits the raw data, builds every table, and verifies the output with checks written separately from the code that builds it, so a misunderstanding can't confirm itself. It also finds exact arithmetic relations between columns automatically.</dd></div>
-      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>pandas</span><span>SciPy</span><span>Word output</span><span>Desktop app</span></dd></div>
-      <div class="result"><b>63 of 63 checks</b> pass and the delivered report is reproduced with <b>zero differences</b>, in under 30 seconds.</div>
+  <article class="project">
+    <h3>One manager agent for eight specialists</h3>
+    <p class="meta">2026 · Python · Node · Claude tool use · Postgres · Railway · GitHub Actions</p>
+    <dl class="story">
+      <div><dt>Problem</dt><dd>Separate bots for WhatsApp, leads, ads and content meant separate places to operate them and nobody looking at the whole.</dd></div>
+      <div><dt>Decision</dt><dd>Prices and event details used to live in the bot's code, so every change was a deploy. I moved them into a table in the shared database that the bot rereads every minute. Code changes still go through git, on purpose.</dd></div>
+      <div><dt>Result</dt><dd><span class="n">73</span> actions across <span class="n">8</span> agents, live around the clock. A price changed from chat reached the live WhatsApp bot in about <span class="n">30</span> seconds with no deploy. For the security tests I broke one defense at a time on purpose; the tests caught <span class="n">10</span> of <span class="n">10</span>.</dd></div>
     </dl>
+    <figure>
+      <div class="diagram" role="img" aria-label="Diagram: chat and web console talk to a manager agent, which passes through a confirmation gate and delegates to specialists that share a Postgres database.">
+        <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
+          <rect x="10" y="30" width="120" height="34" rx="4"/><text x="70" y="51" text-anchor="middle">web console</text>
+          <rect x="10" y="80" width="120" height="34" rx="4"/><text x="70" y="101" text-anchor="middle">WhatsApp / chat</text>
+          <rect class="hub" x="200" y="50" width="130" height="44" rx="4"/><text x="265" y="70" text-anchor="middle">manager agent</text><text class="s" x="265" y="84" text-anchor="middle">confirmation gate</text>
+          <line x1="130" y1="47" x2="200" y2="64"/><line x1="130" y1="97" x2="200" y2="80"/>
+          <rect x="400" y="8" width="180" height="26" rx="4"/><text x="490" y="25" text-anchor="middle">WhatsApp bot</text>
+          <rect x="400" y="40" width="180" height="26" rx="4"/><text x="490" y="57" text-anchor="middle">leads and outreach</text>
+          <rect x="400" y="72" width="180" height="26" rx="4"/><text x="490" y="89" text-anchor="middle">ads (Meta)</text>
+          <rect x="400" y="104" width="180" height="26" rx="4"/><text x="490" y="121" text-anchor="middle">video and content</text>
+          <rect x="400" y="136" width="180" height="26" rx="4"/><text x="490" y="153" text-anchor="middle">web, social, CVs</text>
+          <path d="M330 72 C365 72 365 21 400 21"/><path d="M330 72 C365 72 365 53 400 53"/><path d="M330 72 L400 85"/><path d="M330 72 C365 72 365 117 400 117"/><path d="M330 72 C365 72 365 149 400 149"/>
+          <rect x="200" y="176" width="380" height="30" rx="4"/><text x="390" y="195" text-anchor="middle">shared Postgres: memory, clients, live config</text>
+          <line x1="265" y1="94" x2="265" y2="176"/>
+          <text class="s" x="10" y="160">health check runs in CI</text><text class="s" x="10" y="174">against production</text>
+        </svg>
+      </div>
+      <figcaption>Simplified. The real system also has a desktop version that runs the same manager locally.</figcaption>
+    </figure>
   </article>
 
-  <article class="case">
-    <dl>
-      <h3>An orchestrator for a team of agents</h3>
-      <div><dt>Problem</dt><dd>Separate bots for WhatsApp, leads, ads and content meant separate places to operate and nobody watching the whole.</dd></div>
-      <div><dt>What I built</dt><dd>A manager agent that delegates to 8 specialists, with shared memory in Postgres, a web console, a confirmation gate against prompt injection, and a health check that runs in CI against production. Prices and events can be changed from chat and the WhatsApp bot picks them up without a deploy.</dd></div>
-      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Node</span><span>Claude tool use</span><span>Postgres</span><span>Railway</span><span>GitHub Actions</span><span>Meta Cloud API</span></dd></div>
-      <div class="result"><b>73 actions</b> across 8 agents, live 24/7. A config change from chat reached the live bot in <b>~30 seconds</b>. The security smoke tests caught <b>10 of 10</b> deliberately broken defenses.</div>
-    </dl>
-  </article>
-
-  <article class="case">
-    <dl>
-      <h3>Outreach campaign in one day</h3>
-      <div><dt>Problem</dt><dd>A B2B client in Panama lost a partner institution shortly before a regional tour and needed new ones to approach fast.</dd></div>
-      <div><dt>What I built</dt><dd>A contact list from public sources and a contact database, a short letter, and a sending run from the client's own mailboxes. The contact data stayed out of version control.</dd></div>
-      <div><dt>Stack</dt><dd class="stack"><span>Python</span><span>Apollo API</span><span>SMTP / IMAP</span><span>Postgres</span></dd></div>
-      <div class="result"><b>232 contacts</b> researched and <b>93 emails</b> sent in one day, with <b>0 send failures</b>.</div>
+  <article class="project">
+    <h3>An outreach campaign in one day</h3>
+    <p class="meta">2026 · Python · Apollo API · SMTP/IMAP</p>
+    <dl class="story">
+      <div><dt>Problem</dt><dd>A B2B client in Panama lost a partner institution shortly before a regional tour and needed new ones to contact right away.</dd></div>
+      <div><dt>Decision</dt><dd>I sent from the client's own established mailboxes instead of setting up a new sending domain that day. A fresh domain needs weeks of warm-up, and the tour didn't have weeks. The contact data stayed out of the repository.</dd></div>
+      <div><dt>Result</dt><dd><span class="n">232</span> contacts researched and <span class="n">93</span> emails sent the same day, with <span class="n">0</span> send failures.</dd></div>
     </dl>
   </article>
 </section>
 
-<section style="display:grid;gap:16px">
-  <span class="eyebrow">How I work</span>
-  <div class="how">
-    <div><h3>Process first</h3><p class="small muted">If the task doesn't fit on one page of instructions, an agent will only automate the mess.</p></div>
-    <div><h3>Open the output</h3><p class="small muted">"All green" proves nothing. I read the PDF, the reply, the table, before calling it done.</p></div>
-    <div><h3>Run it at home</h3><p class="small muted">Nothing gets offered to a client until it has run in my own company.</p></div>
-  </div>
+<section aria-labelledby="code">
+  <h2 id="code">Open source</h2>
+  <ul class="plain">
+    <li><span class="yr">desktop-ui-kit</span><span>The Python and WebView2 kit behind three of my production desktop apps. <a href="https://github.com/AndresLazo26/desktop-ui-kit">Repo</a></span></li>
+    <li><span class="yr">zotero-mcp</span><span>An MCP server with no dependencies that lets an AI assistant manage Zotero references. <a href="https://github.com/AndresLazo26/zotero-mcp">Repo</a></span></li>
+  </ul>
 </section>
 
-<section style="display:grid;gap:10px">
-  <span class="eyebrow">Before this</span>
-  <p class="muted" style="max-width:70ch">Years in operations: after-sales process work across 6 LATAM markets at Samsung Electronics Latin America, marketing and supplier coordination for a Costa Rican retailer, and running a food business end to end. Mechanical engineering background.</p>
+<section aria-labelledby="before">
+  <h2 id="before">Before</h2>
+  <ul class="plain">
+    <li><span class="yr">2024 - now</span><span>Founder, enhanzu. AI agents for small businesses in Central America.</span></li>
+    <li><span class="yr">2023 - 2024</span><span>Community and marketing coordinator for a Costa Rican distributor. Paid and organic campaigns, supplier sourcing, the team's first written procedures.</span></li>
+    <li><span class="yr">2021 - 2023</span><span>Operations assistant to the regional operations manager, Samsung Electronics Latin America. After-sales process work across 6 markets.</span></li>
+    <li><span class="yr">2017 - 2019</span><span>Ran a family food business end to end: staff, inventory, accounting, suppliers.</span></li>
+  </ul>
+  <p class="muted">Mechanical engineering background.</p>
 </section>
 
-<footer class="small muted">
-  <span>Andrés Lazo · <a href="mailto:andres.lazo@enhanzu.com">andres.lazo@enhanzu.com</a></span>
-  <span>Client names are left out on purpose. Demos use sample data.</span>
+<footer>
+  <span>Demos use sample data. The code excerpts are from production and keep their Spanish names.</span>
 </footer>
 
 </main>
