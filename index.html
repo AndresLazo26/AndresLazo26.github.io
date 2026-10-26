@@ -2,225 +2,255 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Andrés Lazo</title>
-<meta name="description" content="Andrés Lazo builds AI automations for small businesses. Six projects, with the decision behind each one and the numbers it produced.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Andrés Lazo · Virtual assistant</title>
+<meta name="description" content="Bilingual virtual assistant and operations support with AI tools. Inbox, calendar, client follow-up and the small automations that keep them in order. $10/h, full-time, US hours.">
+<meta property="og:title" content="Andrés Lazo · Virtual assistant">
+<meta property="og:description" content="Bilingual (EN/ES) virtual assistant and operations support. $10/h, full-time, US business hours.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-/* Layout: one reading column, left aligned. Each project = short story + one piece of proof (video, screenshot, code, diagram). */
 :root{
-  --bg:#F7F8F9; --fg:#16181D; --muted:#5B616E; --line:#E1E4E8; --code:#EEF0F3; --link:#2B59C3;
-  --sans:'Geist',ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;
-  --mono:'Geist Mono',ui-monospace,'Cascadia Mono',Consolas,monospace;
-  color-scheme:light;
+  --paper:#EEF1EC; --card:#F8FAF6; --ink:#1F2A24; --muted:#56625A; --rule:#CBD3CC;
+  --green:#2E6B4F; --mark:#F3E46A;
+  --disp:"Bricolage Grotesque",system-ui,sans-serif;
+  --body:"Source Serif 4",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --bg:#0F1114; --fg:#E6E8EB; --muted:#9097A3; --line:#252930; --code:#171A1F; --link:#93B1FF; color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#0F1114; --fg:#E6E8EB; --muted:#9097A3; --line:#252930; --code:#171A1F; --link:#93B1FF; color-scheme:dark}
 *{box-sizing:border-box}
 html{-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font:15.5px/1.7 var(--sans)}
-main{max-width:680px;margin:0 auto;padding-block:72px 96px;
-  padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px));
-  display:grid;gap:72px}
-h1,h2,h3{margin:0;font-weight:600;letter-spacing:-.01em;text-wrap:balance}
-h1{font-size:1.15rem} h2{font-size:.8rem;font-weight:500;color:var(--muted);letter-spacing:.02em}
-h3{font-size:1.05rem}
-p{margin:0;max-width:64ch}
-a{color:var(--link);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--link) 35%,transparent)}
-a:hover{border-bottom-color:var(--link)}
-a:focus-visible{outline:2px solid var(--link);outline-offset:3px;border-radius:2px}
-.muted{color:var(--muted)}
-.intro{display:grid;gap:14px}
-.intro .links{display:flex;gap:18px;flex-wrap:wrap;font-size:.92rem}
-section{display:grid;gap:28px}
-.project{display:grid;gap:14px;padding-top:28px;border-top:1px solid var(--line)}
-.project:first-of-type{border-top:0;padding-top:0}
-.meta{font:400 .78rem var(--mono);color:var(--muted)}
-.story{display:grid;gap:10px;margin:0}
-.story div{display:grid;grid-template-columns:76px 1fr;gap:12px}
-.story dt{font:500 .72rem var(--mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;padding-top:4px}
-.story dd{margin:0;min-width:0}
-@media (max-width:520px){.story div{grid-template-columns:1fr;gap:2px}}
-.n{font-variant-numeric:tabular-nums;font-weight:600}
-figure{margin:6px 0 0;display:grid;gap:8px;min-width:0}
-figcaption{font-size:.8rem;color:var(--muted)}
-video,img{display:block;width:100%;max-width:100%;border:1px solid var(--line);border-radius:6px;background:#0A0B0F}
-video.tall{max-width:320px}
-pre{margin:0;overflow-x:auto;background:var(--code);border:1px solid var(--line);border-radius:6px;padding:14px 16px;font:400 .78rem/1.6 var(--mono);tab-size:4}
-pre .c{color:var(--muted)}
-.diagram{overflow-x:auto;background:var(--code);border:1px solid var(--line);border-radius:6px;padding:18px}
-.diagram svg{display:block;min-width:560px;width:100%;height:auto}
-.diagram text{font:400 11px var(--mono);fill:var(--fg)}
-.diagram .s{fill:var(--muted)}
-.diagram rect{fill:var(--bg);stroke:var(--line)}
-.diagram rect.hub{stroke:var(--link)}
-.diagram line,.diagram path{stroke:var(--muted);fill:none}
-ul.plain{list-style:none;margin:0;padding:0;display:grid;gap:10px}
-ul.plain li{display:grid;grid-template-columns:110px 1fr;gap:12px}
-ul.plain .yr{font:400 .78rem var(--mono);color:var(--muted);padding-top:3px}
-@media (max-width:520px){ul.plain li{grid-template-columns:1fr;gap:0}}
-footer{font-size:.85rem;color:var(--muted);display:grid;gap:6px}
-@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+body{margin:0;background:var(--paper);color:var(--ink);font:18px/1.65 var(--body)}
+a{color:var(--green);text-underline-offset:3px}
+a:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:2px}
+img,video{max-width:100%;display:block}
+.wrap{max-width:62rem;margin:0 auto;padding:0 16px}
+h1,h2,h3{font-family:var(--disp);font-weight:700;line-height:1.1;margin:0}
+h2{font-size:clamp(1.6rem,3.4vw,2.2rem);margin-bottom:1.25rem}
+h3{font-size:1.2rem;font-weight:500;margin-bottom:.4rem}
+p{margin:0 0 1rem}
+.mono{font-family:var(--mono);font-size:.82rem;letter-spacing:.01em}
+section.wrap{padding:4.5rem 16px;border-top:1px solid var(--rule)}
+
+/* highlighter: the one hand-made gesture on the page */
+mark{background:linear-gradient(transparent 55%,var(--mark) 55%,var(--mark) 92%,transparent 92%);color:inherit;padding:0 .1em}
+
+/* hero */
+.hero{display:grid;grid-template-columns:minmax(0,1fr) 15rem;gap:3rem;align-items:end;padding:5rem 16px 3.5rem}
+.hero h1{font-size:clamp(2.6rem,7vw,4.6rem);letter-spacing:-.02em;margin-bottom:1.5rem}
+.hero .lede{font-size:1.25rem;max-width:36rem}
+.photo{position:relative;aspect-ratio:4/5;background:var(--green);color:var(--paper);border-radius:6px;overflow:hidden;display:grid;place-items:center;font:700 3.5rem var(--disp)}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.facts{display:flex;flex-wrap:wrap;gap:.5rem 1.75rem;margin:2rem 0 0;padding:0;list-style:none}
+.facts li{font-family:var(--mono);font-size:.85rem}
+.facts b{font-weight:500;color:var(--green)}
+.cta{display:inline-block;margin-top:2rem;background:var(--ink);color:var(--paper);text-decoration:none;font:500 1rem var(--disp);padding:.85rem 1.4rem;border-radius:4px}
+.cta:hover{background:var(--green)}
+
+/* hours: the signature */
+.hours p{max-width:40rem}
+.ruler{margin-top:2rem;font-family:var(--mono);font-size:.8rem}
+.row{display:grid;grid-template-columns:7.5rem 1fr;align-items:center;gap:1rem;margin-bottom:.6rem}
+.track{position:relative;height:1.9rem;background:var(--card);border:1px solid var(--rule);border-radius:3px}
+.band{position:absolute;top:3px;bottom:3px;background:var(--green);border-radius:2px;color:var(--paper);display:flex;align-items:center;padding-left:.5rem;white-space:nowrap;overflow:hidden;font-size:.75rem}
+.ticks{display:flex;justify-content:space-between;margin-left:8.5rem;color:var(--muted)}
+
+/* services */
+.services{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2.5rem 3rem}
+.services p{color:var(--muted);margin:0}
+.rate{margin-top:2.5rem;padding:1.25rem 1.5rem;background:var(--card);border-left:4px solid var(--green);max-width:40rem}
+.rate p{margin:0}
+
+/* work */
+.case{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:2.5rem;padding:2.5rem 0;border-bottom:1px solid var(--rule)}
+.case:last-child{border-bottom:0}
+.case .when{color:var(--muted);margin-bottom:.5rem}
+.ba{display:grid;grid-template-columns:5.5rem 1fr;gap:.25rem 1rem;margin:1rem 0}
+.ba dt{font-family:var(--mono);font-size:.8rem;color:var(--muted);padding-top:.25rem}
+.ba dd{margin:0}
+.case figure{margin:0}
+.case figcaption{color:var(--muted);margin-top:.5rem}
+.case video{border-radius:4px;background:#111;width:100%;max-height:30rem;object-fit:contain}
+.tools{color:var(--muted)}
+
+/* how I work */
+.how{columns:2;column-gap:3rem}
+.how p{break-inside:avoid}
+.how strong{font-family:var(--disp);font-weight:500}
+
+/* contact */
+section.contact{padding-bottom:6rem}
+.contact p{max-width:36rem;font-size:1.15rem}
+footer{border-top:1px solid var(--rule);padding:1.5rem 16px 2.5rem;color:var(--muted)}
+
+@media (max-width:760px){
+  body{font-size:17px}
+  .hero{grid-template-columns:1fr;gap:2rem;padding-top:3rem}
+  .photo{width:10rem;order:-1}
+  .services,.case{grid-template-columns:1fr}
+  .how{columns:1}
+  .row{grid-template-columns:5.5rem 1fr;gap:.5rem}
+  .ticks{margin-left:6rem}
+  section.wrap{padding:3.25rem 16px}
+}
 </style>
 </head>
 <body>
-<main>
 
-<header class="intro">
-  <h1>Andrés Lazo</h1>
-  <p>I automate the repetitive parts of small businesses with AI: replying to new leads, reading a recruiter's inbox, filling forms, checking numbers. I live in Costa Rica and work remotely in English and Spanish.</p>
-  <p class="muted">I don't write most of the code by hand. I decide what's worth automating, direct AI tools to build it, and spend the rest of the time making sure it works on real data. Everything below runs in my own company, <a href="https://enhanzu.com">enhanzu</a>, or ran for a client. Clients are not named.</p>
-  <div class="links">
-    <a href="https://www.linkedin.com/in/andres-lazo">LinkedIn</a>
-    <a href="https://github.com/AndresLazo26">GitHub</a>
-    <span class="muted">andres.lazo@enhanzu.com</span>
+<header class="wrap hero">
+  <div>
+    <h1>Hi, I'm Andrés.</h1>
+    <p class="lede">I keep a small team's inbox, calendar and client follow-ups in order, in English and Spanish, and I use AI tools to <mark>answer people faster without letting anything slip</mark>.</p>
+    <ul class="facts">
+      <li><b>$10</b>/hour</li>
+      <li><b>Full-time</b>, 40 h/week</li>
+      <li>Can start <b>now</b></li>
+      <li>English C2 · Spanish native</li>
+      <li>Costa Rica (UTC−6)</li>
+    </ul>
+    <a class="cta" href="mailto:lazovaldiviaa@gmail.com?subject=Virtual%20assistant">Email me about your team</a>
   </div>
+  <!-- ponytail: drop the photo at assets/andres.jpg; until then the initials show -->
+  <div class="photo">AL<img src="assets/andres.jpg" alt="Andrés Lazo" onerror="this.remove()"></div>
 </header>
 
-<section aria-labelledby="work">
-  <h2 id="work">Work</h2>
+<main>
+<section class="wrap hours" aria-labelledby="h-hours">
+  <h2 id="h-hours">Your workday is my workday</h2>
+  <p>Costa Rica doesn't change its clocks, so I sit inside US business hours all year. This is today's 9-to-5 in each city, drawn in Costa Rica time.</p>
+  <div class="ruler" id="ruler">
+    <noscript><p>New York 9–5 is 7 a.m.–3 p.m. here (8–4 in winter). Chicago is 8–4 (9–5 in winter). Los Angeles is 10–6 (11–7 in winter).</p></noscript>
+  </div>
+</section>
 
-  <article class="project">
-    <h3>Replying to clinic leads before they go elsewhere</h3>
-    <p class="meta">2026 · Python · Gmail API · Google Calendar · Railway</p>
-    <dl class="story">
-      <div><dt>Problem</dt><dd>A clinic that answers a web form the next morning has usually lost that patient. I wanted to sell an automatic reply to clinics, but I had never run one.</dd></div>
-      <div><dt>Decision</dt><dd>I put it on my own site first and refused to offer it until it worked there. That test is how I found my contact page still embedding an old booking calendar that the system couldn't see, so a lead who booked there would have been chased anyway. I moved booking to Google Calendar so the worker can check it.</dd></div>
-      <div><dt>Result</dt><dd>In the end-to-end test a filled form got a personal reply with a booking link in about <span class="n">4 minutes</span>. The booking was detected and no follow-up went out. Leads who neither reply nor book get exactly one follow-up after 24 hours.</dd></div>
-    </dl>
-    <figure>
-      <pre><span class="c"># The check that decides whether a lead gets a follow-up</span>
-def agendo(H, email, desde):
-    try:
-        r = requests.get(".../calendars/primary/events", headers=H, params={
-            "q": email, "singleEvents": "true", "maxResults": 5,
-            "timeMin": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime(desde))})
-        r.raise_for_status()
-        return any(email in (a.get("email") or "").lower()
-                   for e in r.json().get("items", []) for a in e.get("attendees", []))
-    except Exception as ex:
-        log(f"calendar no disponible ({ex}): se asume que {email} no agendó")
-        return False</pre>
-      <figcaption>From the production worker. If the calendar can't be read, it fails soft and falls back to the old behavior.</figcaption>
-    </figure>
-    <figure>
-      <video class="tall" src="assets/clinic-demo.mp4" poster="assets/clinic-poster.png" controls muted playsinline preload="none"></video>
-      <figcaption>20-second product demo for clinics. Sample data.</figcaption>
-    </figure>
+<section class="wrap" aria-labelledby="h-help">
+  <h2 id="h-help">What I can take off your plate</h2>
+  <div class="services">
+    <div><h3>Inbox and calendar</h3><p>I sort and answer email in your voice, book and move meetings, and send you one short summary of what needs you.</p></div>
+    <div><h3>Client follow-up</h3><p>Replies by email and WhatsApp, reminders after a quote or a missed call, and a record of who is waiting on what.</p></div>
+    <div><h3>Records and reports</h3><p>Google Sheets, Notion or your CRM kept clean and current, with a weekly report you can read in two minutes.</p></div>
+    <div><h3>Small automations</h3><p>When a task repeats every day, I set up Zapier or an AI step to do it and write down how it works, so it doesn't depend on me.</p></div>
+  </div>
+  <div class="rate"><p><strong>$10 an hour.</strong> Full-time or a fixed number of hours a week. Everything an AI tool drafts, I read before it goes to your client.</p></div>
+</section>
+
+<section class="wrap" aria-labelledby="h-work">
+  <h2 id="h-work">Work I've done</h2>
+
+  <article class="case">
+    <div>
+      <p class="mono when">2021–2023 · Samsung Electronics Latin America</p>
+      <h3>Executive and operations assistant to a regional operations manager</h3>
+      <dl class="ba">
+        <dt>The job</dt><dd>Keep after-sales service running in six markets across Central America and the Caribbean, remotely, through the pandemic.</dd>
+        <dt>What I did</dt><dd>Audit reports, data prep for Lean Six Sigma campaigns, and the remote coordination tools the service centers used.</dd>
+        <dt>Result</dt><dd>Service lead time for smartphones fell <mark>35%</mark>, and slow-moving spare parts dropped from <mark>$21.5M to $3.4M</mark>.</dd>
+      </dl>
+      <p class="mono tools">Excel · Google Workspace · reporting</p>
+    </div>
+    <div>
+      <p>This is where I learned the job: a manager with too many countries and too little time, and my work was making sure nothing waited on him that didn't have to.</p>
+    </div>
   </article>
 
-  <article class="project">
-    <h3>Sorting a recruiter's inbox into vacancies</h3>
-    <p class="meta">2026 · Python · IMAP/Gmail OAuth · Claude · desktop app and web</p>
-    <dl class="story">
-      <div><dt>Problem</dt><dd>A recruiter received applications for several open roles in one inbox, mixed with everything else, and read each CV by hand.</dd></div>
-      <div><dt>Decision</dt><dd>After the first real run, the open question was whether to make the email filters configurable. I decided not to. The classifier had sorted every email correctly, so the risk was a settings screen nobody would use well. I made the rules file readable and added a button to open it instead. The same run showed that "KAM" and "Key Account Manager" were opening two vacancies for one role, which no test with sample data had caught.</dd></div>
-      <div><dt>Result</dt><dd>First run on the real inbox: <span class="n">30</span> emails, <span class="n">30</span> CVs, each in the right vacancy. A later batch of 100 emails found 45 CVs for about <span class="n">$0.25</span> in model cost.</dd></div>
-    </dl>
+  <article class="case">
+    <div>
+      <p class="mono when">2026 · independent AI automation project (freelance)</p>
+      <h3>Answering a clinic's web leads in minutes, not the next day</h3>
+      <dl class="ba">
+        <dt>Before</dt><dd>A contact form landed in an inbox and got answered the next morning, when the patient had often booked somewhere else.</dd>
+        <dt>After</dt><dd>Every form gets a personal reply with a booking link in about <mark>4 minutes</mark>. If they book, follow-ups stop. If they don't, they get exactly one, after 24 hours.</dd>
+      </dl>
+      <p class="mono tools">Gmail · Google Calendar · Claude · Python</p>
+    </div>
     <figure>
-      <video src="assets/hr-report.mp4" poster="assets/hr-poster.png" controls muted playsinline preload="none"></video>
-      <figcaption>The candidate report, from the user tutorial. Sample data.</figcaption>
-    </figure>
-  </article>
-
-  <article class="project">
-    <h3>A job application co-pilot that can't press Submit</h3>
-    <p class="meta">2026 · Python · Playwright · Claude · PyInstaller</p>
-    <dl class="story">
-      <div><dt>Problem</dt><dd>Applying for jobs means retyping the same answers into long forms. Tools that rewrite CVs with AI also tend to add achievements that never happened.</dd></div>
-      <div><dt>Decision</dt><dd>The first version could auto-apply on LinkedIn. I deleted it, about 1,000 lines. It needed the user's password stored in plain text, typing it from a fresh browser is what gets accounts flagged, and LinkedIn's login now uses element ids that change on every render. The co-pilot works in a real browser instead, and the Submit button is blocked in code, not only in the prompt.</dd></div>
-      <div><dt>Result</dt><dd><span class="n">26</span> to <span class="n">70</span> seconds and <span class="n">$0.05</span> to <span class="n">$0.12</span> per form. Once I fixed the CV parser the match score started to mean something: <span class="n">32-39</span> for a role that didn't fit and <span class="n">80-82</span> for one that did. Before the fix both scored under 20.</dd></div>
-    </dl>
-    <figure>
-      <pre>def clic(self, ref: str) -> str:
-    info = self._info(ref)
-    nombre = info.get("etiqueta", "")
-    if es_envio(info):
-        raise PermissionError(f"'{nombre}' envía o descarta la postulación: ese clic es del humano")
-    ...</pre>
-      <figcaption>The browser wrapper refuses to click anything that submits or discards an application.</figcaption>
+      <video controls preload="none" playsinline poster="assets/clinic-poster.png"><source src="assets/clinic-demo.mp4" type="video/mp4"></video>
+      <figcaption class="mono">Demo with sample data.</figcaption>
     </figure>
   </article>
 
-  <article class="project">
-    <h3>Research tables that are checked by something else</h3>
-    <p class="meta">2026 · Python · pandas · SciPy · Word</p>
-    <dl class="story">
-      <div><dt>Problem</dt><dd>A research team built the results tables of a technical report on rural water and sanitation by hand from a large dataset. A single wrong figure spreads into every chapter that cites it.</dd></div>
-      <div><dt>Decision</dt><dd>It would have been faster to let the model write both the code that builds the tables and the checks. I kept them apart. If the same model misreads the data in both places, the check passes and the error ships. The checks compare against the report that was already delivered and reviewed.</dd></div>
-      <div><dt>Result</dt><dd>The pipeline passes <span class="n">63</span> of <span class="n">63</span> checks and reproduces the delivered report with <span class="n">0</span> differences, in under 30 seconds. It also found on its own that a coverage column equals three other columns added up and divided by households, true in 4,896 of 4,896 rows. Before, that relation had been worked out by hand.</dd></div>
-    </dl>
-  </article>
-
-  <article class="project">
-    <h3>One manager agent for eight specialists</h3>
-    <p class="meta">2026 · Python · Node · Claude tool use · Postgres · Railway · GitHub Actions</p>
-    <dl class="story">
-      <div><dt>Problem</dt><dd>Separate bots for WhatsApp, leads, ads and content meant separate places to operate them and nobody looking at the whole.</dd></div>
-      <div><dt>Decision</dt><dd>Prices and event details used to live in the bot's code, so every change was a deploy. I moved them into a table in the shared database that the bot rereads every minute. Code changes still go through git, on purpose.</dd></div>
-      <div><dt>Result</dt><dd><span class="n">73</span> actions across <span class="n">8</span> agents, live around the clock. A price changed from chat reached the live WhatsApp bot in about <span class="n">30</span> seconds with no deploy. For the security tests I broke one defense at a time on purpose; the tests caught <span class="n">10</span> of <span class="n">10</span>.</dd></div>
-    </dl>
+  <article class="case">
+    <div>
+      <p class="mono when">2026 · independent AI automation project (freelance)</p>
+      <h3>A recruiter's inbox sorted into open roles</h3>
+      <dl class="ba">
+        <dt>Before</dt><dd>Applications for several roles arrived mixed with everything else, and every CV was read by hand.</dd>
+        <dt>After</dt><dd>On the first real run, <mark>30 of 30</mark> CVs went to the right role, with a short report per candidate. One hundred emails cost about $0.25 to process.</dd>
+      </dl>
+      <p class="mono tools">Gmail · Claude · Google Sheets</p>
+    </div>
     <figure>
-      <div class="diagram" role="img" aria-label="Diagram: chat and web console talk to a manager agent, which passes through a confirmation gate and delegates to specialists that share a Postgres database.">
-        <svg viewBox="0 0 600 220" xmlns="http://www.w3.org/2000/svg">
-          <rect x="10" y="30" width="120" height="34" rx="4"/><text x="70" y="51" text-anchor="middle">web console</text>
-          <rect x="10" y="80" width="120" height="34" rx="4"/><text x="70" y="101" text-anchor="middle">WhatsApp / chat</text>
-          <rect class="hub" x="200" y="50" width="130" height="44" rx="4"/><text x="265" y="70" text-anchor="middle">manager agent</text><text class="s" x="265" y="84" text-anchor="middle">confirmation gate</text>
-          <line x1="130" y1="47" x2="200" y2="64"/><line x1="130" y1="97" x2="200" y2="80"/>
-          <rect x="400" y="8" width="180" height="26" rx="4"/><text x="490" y="25" text-anchor="middle">WhatsApp bot</text>
-          <rect x="400" y="40" width="180" height="26" rx="4"/><text x="490" y="57" text-anchor="middle">leads and outreach</text>
-          <rect x="400" y="72" width="180" height="26" rx="4"/><text x="490" y="89" text-anchor="middle">ads (Meta)</text>
-          <rect x="400" y="104" width="180" height="26" rx="4"/><text x="490" y="121" text-anchor="middle">video and content</text>
-          <rect x="400" y="136" width="180" height="26" rx="4"/><text x="490" y="153" text-anchor="middle">web, social, CVs</text>
-          <path d="M330 72 C365 72 365 21 400 21"/><path d="M330 72 C365 72 365 53 400 53"/><path d="M330 72 L400 85"/><path d="M330 72 C365 72 365 117 400 117"/><path d="M330 72 C365 72 365 149 400 149"/>
-          <rect x="200" y="176" width="380" height="30" rx="4"/><text x="390" y="195" text-anchor="middle">shared Postgres: memory, clients, live config</text>
-          <line x1="265" y1="94" x2="265" y2="176"/>
-          <text class="s" x="10" y="160">health check runs in CI</text><text class="s" x="10" y="174">against production</text>
-        </svg>
-      </div>
-      <figcaption>Simplified. The real system also has a desktop version that runs the same manager locally.</figcaption>
+      <video controls preload="none" playsinline poster="assets/hr-poster.png"><source src="assets/hr-report.mp4" type="video/mp4"></video>
+      <figcaption class="mono">The candidate report. Sample data.</figcaption>
     </figure>
   </article>
 
-  <article class="project">
-    <h3>An outreach campaign in one day</h3>
-    <p class="meta">2026 · Python · Apollo API · SMTP/IMAP</p>
-    <dl class="story">
-      <div><dt>Problem</dt><dd>A B2B client lost a partner institution shortly before a series of events and needed new ones to contact right away.</dd></div>
-      <div><dt>Decision</dt><dd>I sent from the client's own established mailboxes instead of setting up a new sending domain that day. A fresh domain needs weeks of warm-up, and the events didn't have weeks. The contact data stayed out of the repository.</dd></div>
-      <div><dt>Result</dt><dd><span class="n">232</span> contacts researched and <span class="n">93</span> emails sent the same day, with <span class="n">0</span> send failures.</dd></div>
-    </dl>
+  <article class="case">
+    <div>
+      <p class="mono when">2024–now · independent AI automation projects (freelance)</p>
+      <h3>WhatsApp support for small businesses</h3>
+      <dl class="ba">
+        <dt>The job</dt><dd>Answer customer questions at any hour and keep prices and dates current without calling a developer.</dd>
+        <dt>Result</dt><dd>A support line live 24/7 that has served <mark>220+ people</mark> and <mark>2,200+ messages</mark>. A price change sent by chat applies in under a minute.</dd>
+      </dl>
+      <p class="mono tools">WhatsApp Business · Claude · Google Sheets</p>
+    </div>
+    <div>
+      <p>The bot is the easy part. Most of the work was the same as any assistant's: learning what customers actually ask, writing the answers down, and checking the conversations every week.</p>
+    </div>
+  </article>
+
+  <article class="case">
+    <div>
+      <p class="mono when">2017–2019 · family food business, Costa Rica</p>
+      <h3>Operations manager</h3>
+      <p>Staff, inventory, accounting, suppliers, deliveries and ads, with no team behind me. The business held a 40% margin the whole time.</p>
+    </div>
+    <div>
+      <p>It taught me what a small business owner's week looks like from the inside, and which tasks quietly eat it.</p>
+    </div>
   </article>
 </section>
 
-<section aria-labelledby="code">
-  <h2 id="code">Open source</h2>
-  <ul class="plain">
-    <li><span class="yr">desktop-ui-kit</span><span>The Python and WebView2 kit behind three of my production desktop apps. <a href="https://github.com/AndresLazo26/desktop-ui-kit">Repo</a></span></li>
-    <li><span class="yr">zotero-mcp</span><span>An MCP server with no dependencies that lets an AI assistant manage Zotero references. <a href="https://github.com/AndresLazo26/zotero-mcp">Repo</a></span></li>
-    <li><span class="yr">secrets guard</span><span>Pre-commit hook and GitHub Actions workflow that stop secrets with gitleaks. I use it across a dozen repos, some of them edited by AI agents. <a href="https://github.com/AndresLazo26/precommit-secrets-guard">Repo</a></span></li>
-    <li><span class="yr">security sweep</span><span>A weekly scan of repos, live sites and release zips that never prints a secret. Findings are fingerprints you can mark as reviewed. <a href="https://github.com/AndresLazo26/security-sweep">Repo</a></span></li>
-    <li><span class="yr">rotation</span><span>How I rotated more than 25 credentials in about 48 hours after a hosting provider's environment variables were exposed, with the script for the repetitive part. <a href="https://github.com/AndresLazo26/post-incident-rotation">Repo</a></span></li>
-  </ul>
+<section class="wrap" aria-labelledby="h-how">
+  <h2 id="h-how">How I work</h2>
+  <div class="how">
+    <p><strong>I write things down.</strong> Every recurring task gets a short how-to, so you can hand it to anyone and nothing lives only in my head.</p>
+    <p><strong>You hear from me before you have to ask.</strong> A short end-of-day note: what's done, what's waiting, and what needs your decision.</p>
+    <p><strong>AI drafts, I decide.</strong> I use Claude and ChatGPT for drafts, summaries and research, and nothing they write reaches a client without my review.</p>
+    <p><strong>I ask once, then remember.</strong> If I don't know how you'd answer something, I ask, and I keep the answer for next time.</p>
+  </div>
+  <p class="mono tools" style="margin-top:1.5rem">B.Sc. Industrial Maintenance Engineering, Tecnológico de Costa Rica · Gmail, Google Workspace, Notion, Zapier, Canva, Meta Business Suite, WordPress</p>
 </section>
 
-<section aria-labelledby="before">
-  <h2 id="before">Before</h2>
-  <ul class="plain">
-    <li><span class="yr">2024 - now</span><span>Founder, enhanzu. AI agents for small businesses in Central America.</span></li>
-    <li><span class="yr">2023 - 2024</span><span>Community and marketing coordinator for a Costa Rican distributor. Paid and organic campaigns, supplier sourcing, the team's first written procedures.</span></li>
-    <li><span class="yr">2021 - 2023</span><span>Operations assistant to the regional operations manager, Samsung Electronics Latin America. After-sales process work across 6 markets.</span></li>
-    <li><span class="yr">2017 - 2019</span><span>Ran a family food business end to end: staff, inventory, accounting, suppliers.</span></li>
-  </ul>
-  <p class="muted">Mechanical engineering background.</p>
+<section class="wrap contact" aria-labelledby="h-contact">
+  <h2 id="h-contact">Let's talk</h2>
+  <p>Tell me what's piling up and how many hours a week you need. I usually reply the same day.</p>
+  <p><a href="mailto:lazovaldiviaa@gmail.com?subject=Virtual%20assistant">lazovaldiviaa@gmail.com</a> · <a href="https://www.linkedin.com/in/andres-lazo">LinkedIn</a></p>
 </section>
-
-<footer>
-  <span>Demos use sample data. The code excerpts are from production and keep their Spanish names.</span>
-</footer>
-
 </main>
+
+<footer class="wrap mono">Andrés Lazo · San José, Costa Rica</footer>
+
+<script>
+// Draws each city's 9-to-5 in Costa Rica time for today (handles US daylight saving).
+(function(){
+  var START=5, END=21, CR=-6, el=document.getElementById('ruler'), now=new Date();
+  function off(tz){
+    var o={};
+    new Intl.DateTimeFormat('en-US',{timeZone:tz,hour12:false,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'})
+      .formatToParts(now).forEach(function(x){o[x.type]=x.value});
+    return Math.round((Date.UTC(o.year,o.month-1,o.day,o.hour%24,o.minute)-now.getTime())/36e5);
+  }
+  function fmt(h){return ((h+11)%12+1)+(h<12?' a.m.':' p.m.')}
+  var html='';
+  [['New York','America/New_York'],['Chicago','America/Chicago'],['Los Angeles','America/Los_Angeles']].forEach(function(c){
+    var a=9-off(c[1])+CR;
+    html+='<div class="row"><span>'+c[0]+'</span><div class="track"><div class="band" style="left:'+((a-START)/(END-START)*100)+'%;width:'+(8/(END-START)*100)+'%">'+fmt(a)+'–'+fmt(a+8)+'</div></div></div>';
+  });
+  html+='<div class="ticks" aria-hidden="true"><span>5 a.m.</span><span>9</span><span>1 p.m.</span><span>5</span><span>9 p.m.</span></div>';
+  el.insertAdjacentHTML('beforeend',html);
+})();
+</script>
 </body>
 </html>
